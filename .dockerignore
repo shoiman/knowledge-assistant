@@ -1,0 +1,7 @@
+# Files Docker should not send into the build context
+target/
+.git/
+.idea/
+*.iml
+.env
+HELP.md
