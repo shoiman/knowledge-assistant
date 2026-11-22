@@ -32,6 +32,11 @@ services:
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-kb}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       OLLAMA_BASE_URL: http://host.docker.internal:11434
+      PGVECTOR_HOST: postgres
+      PGVECTOR_PORT: 5432
+      PGVECTOR_DATABASE: ${POSTGRES_DB:-kb}
+      PGVECTOR_USER: ${POSTGRES_USER:-kb}
+      PGVECTOR_PASSWORD: ${POSTGRES_PASSWORD}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
