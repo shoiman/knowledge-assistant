@@ -7,6 +7,7 @@ import dev.langchain4j.store.embedding.pgvector.PgVectorEmbeddingStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import dev.langchain4j.model.chat.ChatModel;
 
 @Configuration
 public class AiConfig {
@@ -37,4 +38,13 @@ public class AiConfig {
                 .build();
         
      }
+
+     @Bean
+     ChatModel
+    chatModel(@Value("${ollama.base-url}") String baseUrl) {
+            return dev.langchain4j.model.ollama.OllamaChatModel.builder()
+                    .baseUrl(baseUrl)
+                    .modelName("llama3.2:3b")
+                    .build();
+        }
 }
